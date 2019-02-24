@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ips</title>
+</head>
+<body>
+    {% for ip in all_ips %}
+    <p> {{ ip.ipAdress }} / {{ ip.unit.name }} / {{ ip.device }} / {{ ip.reserved }} </p>
+    {% endfor %}
+</body>
+</body>
+</html>
