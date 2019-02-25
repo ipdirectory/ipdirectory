@@ -1,12 +1,16 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src='{% static 'list/units/jquery-3.1.1.min.js' %}?{% now "U" %}'></script>
+    <link rel="stylesheet" type="text/css" href='{% static 'list/units/style.css' %}?{% now "U" %}'>
     <title>Units</title>
 </head>
 <body>
+    <a href="add"> Add </a> <br>
     {% for unit in all_units %}
-    <p> {{ unit.name }} / {{ unit.vLan }} </p>
+    <a href='{{unit.pk}}'> {{ unit.name }} / {{ unit.vLan }} </a> <br>
     {% endfor %}
 </body>
 </html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>unitAdd</title>
+</head>
+
+<body>
+
+    <form id="unitAdd" action="{% url 'list:createUnit' %}" method="post">
+        {% csrf_token %}
+        <input type="text" id="vLan" name="vLan" placeholder="vLan" required><br>
+        <input type="text" id="naame" name = "name" placeholder="Unit name" required><br>
+        <input type="submit" value="Create">
+    </form>
+
+</body>
+</html>
