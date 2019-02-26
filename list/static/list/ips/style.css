@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	font-family: Arial;
+}
+
+.rowname{
+	text-align: center;
+	width: 24%;
+	display: inline-block;
+	margin: 0 1px;
+	background-color: #f9ecf2;
+}
+
+.line{
+	text-align: center;
+	margin-bottom: 1px;
+}
+
+
+.inline{
+	width: 24%;
+	background-color: #ddccff;
+	display: inline-block;
+	margin: 0 1px;
+}

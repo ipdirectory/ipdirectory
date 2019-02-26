@@ -6,11 +6,12 @@
 </head>
 
 <body>
-
+    <a href="{% url 'list:index' %}">Home</a><br>
     <form id="unitAdd" action="{% url 'list:createUnit' %}" method="post">
         {% csrf_token %}
         <input type="text" id="vLan" name="vLan" placeholder="vLan" required><br>
         <input type="text" id="naame" name = "name" placeholder="Unit name" required><br>
+        <input type="checkbox" name="check">
         <input type="submit" value="Create">
     </form>
 

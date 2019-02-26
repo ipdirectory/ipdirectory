@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AddField(
-            model_name='ip',
+            model_name='ips',
             name='unit',
             field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='list.Unit'),
         ),

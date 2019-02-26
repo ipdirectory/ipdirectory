@@ -1,12 +1,25 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src='{% static 'list/ips/jquery-3.1.1.min.js' %}?{% now "U" %}'></script>
+    <link rel="stylesheet" type="text/css" href='{% static 'list/ips/style.css' %}?{% now "U" %}'>
     <title>Ips</title>
 </head>
 <body>
+    <a href="{% url 'list:index' %}">Home</a><br>
+
+    <div class="line">
+		<div class="rowname" > IP </div><div class="rowname" > Branch </div><div class="rowname"> Device </div><div class="rowname"> Reserved </div>
+	</div>
     {% for ip in all_ips %}
-    <p> {{ ip.ipAdress }} / {{ ip.unit.name }} / {{ ip.device }} / {{ ip.reserved }} </p>
+
+    <div class="line">
+		<div class = "ip inline"> {{ ip.ipAdress }} </div><div class = "branch inline"> {{ ip.unit.name }} </div><div class = "device inline"> {{ ip.device }} </div><div class = "reserved inline"> {{ ip.reserved }} </div>
+	</div>
+
+
     {% endfor %}
 </body>
 </body>
