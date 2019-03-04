@@ -1,0 +1,1 @@
+cmd /k "..\ipdirectoryvenv\Scripts\activate.bat & python manage.py runserver"

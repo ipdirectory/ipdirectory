@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <script src='{% static 'list/ips/jquery-3.1.1.min.js' %}?{% now "U" %}'></script>
+    <script src='{% static 'list/ips/script.js' %}?{% now "U" %}'></script>
     <link rel="stylesheet" type="text/css" href='{% static 'list/ips/style.css' %}?{% now "U" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static 'list/ips/fontawesome-free-5.7.2-web/css/all.css' %}?{% now "U" %}'>
     <title>Ips</title>
 </head>
 <body>
+    {% csrf_token %}
     <a href="{% url 'list:index' %}">Home</a><br>
 
     <div class="line">
@@ -15,8 +18,9 @@
 	</div>
     {% for ip in all_ips %}
 
-    <div class="line">
-		<div class = "ip inline"> {{ ip.ipAdress }} </div><div class = "branch inline"> {{ ip.unit.name }} </div><div class = "device inline"> {{ ip.device }} </div><div class = "reserved inline"> {{ ip.reserved }} </div>
+    <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
+		<div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "reserve"><i class="fas fa-pen"></i></div></div>
+
 	</div>
 
 

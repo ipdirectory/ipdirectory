@@ -1,29 +1,70 @@
 *{
 	margin: 0;
 	padding: 0;
+	
 }
 
 div{
 	font-family: Arial;
+	color: #fff;
+}
+
+.django-url{
+	display: none;
 }
 
 .rowname{
 	text-align: center;
-	width: 24%;
+	width: 15%;
 	display: inline-block;
-	margin: 0 1px;
-	background-color: #f9ecf2;
+	height: 35px;
+	line-height: 35px;
+	background-color: #74b9ff;
 }
 
 .line{
 	text-align: center;
-	margin-bottom: 1px;
+	
+	
 }
 
 
 .inline{
-	width: 24%;
-	background-color: #ddccff;
+	width: 15%;
 	display: inline-block;
-	margin: 0 1px;
+	padding: 3px 0;
+	position: relative;
+	margin-bottom: 2px;
 }
+
+.reserved-False .inline{
+	background-color: #55efc4;
+}
+
+.reserve{
+	font-size: 14px;
+	display: inline-block;
+	position: absolute;
+	visibility: hidden;
+	right: 5%;
+	width: 15%;
+	border-radius: 10px;
+	
+}
+
+.reserve:hover{
+	color: #fab1a0;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 5px 0px #fab1a0;
+    -moz-box-shadow: 0px 0px 5px 0px #fab1a0;
+    box-shadow: 0px 0px 5px 0px #fab1a0;
+}
+
+
+.inline:hover .reserve{
+	visibility: visible;
+
+}
+
+
+

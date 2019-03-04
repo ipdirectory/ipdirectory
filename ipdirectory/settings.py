@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'list.apps.ListConfig',
+    'edit.apps.EditConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

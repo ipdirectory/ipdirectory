@@ -70,4 +70,3 @@ def createUnit(request) :
                 new_ip.save()
 
     return HttpResponse(template.render(context, request))
-
