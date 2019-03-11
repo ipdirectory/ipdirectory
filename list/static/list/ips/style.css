@@ -41,7 +41,12 @@ div{
 	background-color: #55efc4;
 }
 
+.reserved-True .inline{
+	background-color: #fab1a0;
+}
+
 .reserve{
+	
 	font-size: 14px;
 	display: inline-block;
 	position: absolute;
@@ -53,12 +58,34 @@ div{
 }
 
 .reserve:hover{
-	color: #fab1a0;
+
 	cursor: pointer;
-	-webkit-box-shadow: 0px 0px 5px 0px #fab1a0;
-    -moz-box-shadow: 0px 0px 5px 0px #fab1a0;
-    box-shadow: 0px 0px 5px 0px #fab1a0;
+	-webkit-box-shadow: 0px 0px 5px 0px #ffff;
+    -moz-box-shadow: 0px 0px 5px 0px #ffff;
+    box-shadow: 0px 0px 5px 0px #ffff;
 }
+
+.free {
+	
+	font-size: 14px;
+	display: inline-block;
+	position: absolute;
+	visibility: hidden;
+	right: 5%;
+	width: 15%;
+	border-radius: 10px;
+}
+
+
+.free:hover{
+	
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 5px 0px #ffff;
+    -moz-box-shadow: 0px 0px 5px 0px #ffff;
+    box-shadow: 0px 0px 5px 0px #ffff;
+}
+
+
 
 
 .inline:hover .reserve{
@@ -67,4 +94,7 @@ div{
 }
 
 
+.inline:hover .free{
+	visibility: visible;
 
+}

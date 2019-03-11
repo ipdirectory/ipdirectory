@@ -18,12 +18,17 @@
 	</div>
     {% for ip in all_ips %}
 
-    <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-		<div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "reserve"><i class="fas fa-pen"></i></div></div>
+        {% if ip.reserved %}
+        <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
+    		<div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
 
-	</div>
+    	</div>
+        {% else %}
+        <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
+            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "reserve"><i class="fas fa-pen"></i></div></div>
 
-
+        </div>
+        {% endif %}
     {% endfor %}
 </body>
 </body>
