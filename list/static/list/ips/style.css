@@ -9,6 +9,13 @@ div{
 	color: #fff;
 }
 
+#home{
+	text-decoration: none;
+	position: absolute;
+	left: 5%;
+	top: 10%;
+}
+
 .django-url{
 	display: none;
 }
@@ -25,9 +32,34 @@ div{
 .line{
 	text-align: center;
 	
-	
 }
 
+.invisible{
+	visibility: hidden;
+}
+
+#filter {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+#filter select{
+	background-color: #74b9ff;
+	font-family: Arial;
+	color: #fff;
+	font-size: inherit;
+	box-shadow: none;
+	border: none;
+	outline: none;
+}
+
+option{
+	border: none;
+	outline: none;
+	box-shadow: none;
+}
 
 .inline{
 	width: 15%;

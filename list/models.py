@@ -12,6 +12,7 @@ class Unit(models.Model):
 class Ip(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     ipAdress = models.GenericIPAddressField()
+    userName = models.CharField(max_length=250, default="not assigned")
     device = models.CharField(max_length=250, default="unreachable")
     reserved = models.BooleanField(default=False)
 
