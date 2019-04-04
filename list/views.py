@@ -27,10 +27,12 @@ def units(request) :
 def ips(request, unit_pk) :
     template = loader.get_template('list/ips.html')
     current_unit = Unit.objects.get(pk=unit_pk)
+    all_units = Unit.objects.all()
     all_ips = current_unit.ip_set.all()
     context = {
         'all_ips': all_ips,
-        'unit_pk': unit_pk
+        'unit_pk': unit_pk,
+        'all_units': all_units
     }
 
     return HttpResponse(template.render(context, request))

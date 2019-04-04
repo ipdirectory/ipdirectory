@@ -19,31 +19,38 @@
 
     <div class="line" id = "filter">
         <a href="{% url 'list:index' %}" id= "home">Home</a>
-		<div class="rowname" > IP </div>
-        <div class="rowname" >
+		<div class="rowname" id = "filter-ip" > IP </div>
+        <div class="rowname" id = "filter-unit">
             <select>
                 <option selected disabled >Unit</option>
-                <option>Law</option>
+                {% for unit in all_units %}
+                <option>{{ unit.name }}</option>
+                {% endfor %}
             </select>
         </div>
-        <div class="rowname" > Username </div>
-        <div class="rowname"> Device </div>
-        <div class="rowname"> Reserved </div>
+        <div class="rowname" id = "filter-userName" > Username </div>
+        <div class="rowname" id = "filter-device"> Device </div>
+        <div class="rowname" id = "filter-reserved"> Reserved </div>
 	</div>
+
+    <div id = "ip-content">
     {% for ip in all_ips %}
 
         {% if ip.reserved %}
         <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-    		<div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
+            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
 
-    	</div>
+        </div>
         {% else %}
         <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
             <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "reserve"><i class="fas fa-pen"></i></div></div>
 
         </div>
         {% endif %}
-    {% endfor %}
+    {% endfor %}        
+    </div>
+
+    
 </body>
 </body>
 </html>
