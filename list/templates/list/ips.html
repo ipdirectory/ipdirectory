@@ -21,8 +21,8 @@
         <a href="{% url 'list:index' %}" id= "home">Home</a>
 		<div class="rowname" id = "filter-ip" > IP </div>
         <div class="rowname" id = "filter-unit">
-            <select>
-                <option selected disabled >Unit</option>
+            <select id = "select-unit" >
+                <option selected>Unit</option>
                 {% for unit in all_units %}
                 <option>{{ unit.name }}</option>
                 {% endfor %}

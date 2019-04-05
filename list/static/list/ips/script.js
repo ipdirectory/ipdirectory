@@ -65,7 +65,17 @@ $(document).ready(function(){
 		}
 
 		
-	})	
+	})
+
+	
+
+	/*$('#select-unit').blur(function(){
+		$(this).toggleClass('display-none');
+	})*/
+
+
+	//$('#select-unit').unwrap();
+
 
 
 })

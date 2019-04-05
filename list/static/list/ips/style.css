@@ -27,11 +27,12 @@ div{
 	height: 35px;
 	line-height: 35px;
 	background-color: #74b9ff;
+	position: relative;
+	vertical-align: top;
 }
 
 .line{
-	text-align: center;
-	
+	text-align: center;	
 }
 
 .invisible{
@@ -53,7 +54,13 @@ div{
 	box-shadow: none;
 	border: none;
 	outline: none;
+	overflow-y:auto;
+	width: 100%;
+
+
 }
+
+
 
 option{
 	border: none;
@@ -129,4 +136,9 @@ option{
 .inline:hover .free{
 	visibility: visible;
 
+}
+
+
+.display-none{
+	display: none;
 }
