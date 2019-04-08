@@ -67,6 +67,20 @@ $(document).ready(function(){
 		
 	})
 
+	$('#filter-reserved').change(function(){
+		
+		$('.line').removeClass('display-none');
+
+		if($(this).children().val() == 'Free'){
+			$('.reserved-True').addClass('display-none');
+		}
+
+		if($(this).children().val() == 'Reserved'){
+			$('.reserved-False').addClass('display-none');
+		}
+		console.log('change');
+	})
+
 	
 
 	/*$('#select-unit').blur(function(){

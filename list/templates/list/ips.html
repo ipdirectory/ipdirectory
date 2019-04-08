@@ -18,11 +18,11 @@
     </div>
 
     <div class="line" id = "filter">
-        <a href="{% url 'list:index' %}" id= "home">Home</a>
+        <div id= "home-button"><a href="{% url 'list:index' %}"><i class="fas fa-home"></i></a></div>
 		<div class="rowname" id = "filter-ip" > IP </div>
         <div class="rowname" id = "filter-unit">
             <select id = "select-unit" >
-                <option selected>Unit</option>
+                <option disabled selected>Unit</option>
                 {% for unit in all_units %}
                 <option>{{ unit.name }}</option>
                 {% endfor %}
@@ -30,7 +30,14 @@
         </div>
         <div class="rowname" id = "filter-userName" > Username </div>
         <div class="rowname" id = "filter-device"> Device </div>
-        <div class="rowname" id = "filter-reserved"> Reserved </div>
+        <div class="rowname" id = "filter-reserved">
+            <select id = "select-reserved" >
+                <option selected>All</option>
+                <option>Reserved</option>
+                <option>Free</option>
+            </select>
+        </div>
+        <div id="seach-button"><i class="fas fa-search"></i></div>
 	</div>
 
     <div id = "ip-content">
@@ -38,12 +45,12 @@
 
         {% if ip.reserved %}
         <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
+            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">reserved<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
 
         </div>
         {% else %}
         <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">{{ ip.reserved }}<div class = "reserve"><i class="fas fa-pen"></i></div></div>
+            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">free<div class = "reserve"><i class="fas fa-pen"></i></div></div>
 
         </div>
         {% endif %}
