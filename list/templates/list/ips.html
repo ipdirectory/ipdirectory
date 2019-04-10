@@ -4,59 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <script src='{% static 'list/ips/jquery-3.1.1.min.js' %}?{% now "U" %}'></script>
+    <script src='{% static 'list/ips/jquery-ui-1.12.1.custom/jquery-ui.js' %}?{% now "U" %}'></script>
     <script src='{% static 'list/ips/script.js' %}?{% now "U" %}'></script>
     <link rel="stylesheet" type="text/css" href='{% static 'list/ips/style.css' %}?{% now "U" %}'>
+    <link rel="stylesheet" type="text/css" href='{% static 'list/ips/jquery-ui-1.12.1.custom/jquery-ui.min.css' %}?{% now "U" %}'>
     <link rel="stylesheet" type="text/css" href='{% static 'list/ips/fontawesome-free-5.7.2-web/css/all.css' %}?{% now "U" %}'>
     <title>Ips</title>
 </head>
 <body>
     {% csrf_token %}
     
+    <div id="main-div"> 
+        <div class="line invisible">
+            <div class="rowname" > IP </div><div class="rowname" > Branch </div><div class="rowname" > Username </div><div class="rowname"> Device </div><div class="rowname"> Reserved </div>
+        </div>
 
-    <div class="line invisible">
-        <div class="rowname" > IP </div><div class="rowname" > Branch </div><div class="rowname" > Username </div><div class="rowname"> Device </div><div class="rowname"> Reserved </div>
+        <div class="line" id = "filter">
+            <div id= "home-button"><a href="{% url 'list:index' %}"><i class="fas fa-home"></i></a></div>
+    		<div class="rowname" id = "filter-ip" > IP </div>
+            <div class="rowname" id = "filter-unit">
+                <select id = "select-unit" >
+                    <option disabled selected>Unit</option>
+                    {% for unit in all_units %}
+                    <option>{{ unit.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="rowname" id = "filter-userName" > Username </div>
+            <div class="rowname" id = "filter-device"> Device </div>
+            <div class="rowname" id = "filter-reserved">
+                <select id = "select-reserved" >
+                    <option selected>All</option>
+                    <option>Reserved</option>
+                    <option>Free</option>
+                </select>
+            </div>
+            <div id="seach-button"><i class="fas fa-search"></i></div>
+    	</div>
+
+        <div id = "ip-content">
+        {% for ip in all_ips %}
+
+            {% if ip.reserved %}
+            <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
+                <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">reserved<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
+
+            </div>
+            {% else %}
+            <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
+                <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">free<div class = "reserve"><i class="fas fa-pen"></i></div></div>
+
+            </div>
+            {% endif %}
+        {% endfor %}        
+        </div>
     </div>
-
-    <div class="line" id = "filter">
-        <div id= "home-button"><a href="{% url 'list:index' %}"><i class="fas fa-home"></i></a></div>
-		<div class="rowname" id = "filter-ip" > IP </div>
-        <div class="rowname" id = "filter-unit">
-            <select id = "select-unit" >
-                <option disabled selected>Unit</option>
-                {% for unit in all_units %}
-                <option>{{ unit.name }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div class="rowname" id = "filter-userName" > Username </div>
-        <div class="rowname" id = "filter-device"> Device </div>
-        <div class="rowname" id = "filter-reserved">
-            <select id = "select-reserved" >
-                <option selected>All</option>
-                <option>Reserved</option>
-                <option>Free</option>
-            </select>
-        </div>
-        <div id="seach-button"><i class="fas fa-search"></i></div>
-	</div>
-
-    <div id = "ip-content">
-    {% for ip in all_ips %}
-
-        {% if ip.reserved %}
-        <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">reserved<div class = "free"><i class="fas fa-unlock-alt"></i></div></div>
-
-        </div>
-        {% else %}
-        <div  id="{{ip.id}}" class="line reserved-{{ ip.reserved }}">
-            <div class = "ip inline">{{ ip.ipAdress }}</div><div class = "branch inline">{{ ip.unit.name }}</div><div class = "userName inline">{{ ip.userName }}</div><div class = "device inline">{{ ip.device }}</div><div class = "reserved inline">free<div class = "reserve"><i class="fas fa-pen"></i></div></div>
-
-        </div>
-        {% endif %}
-    {% endfor %}        
-    </div>
-
     
 </body>
 </body>

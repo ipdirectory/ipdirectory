@@ -81,6 +81,8 @@ $(document).ready(function(){
 		console.log('change');
 	})
 
+	$('#test').dialog();
+
 	
 
 	/*$('#select-unit').blur(function(){
