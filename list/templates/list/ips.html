@@ -26,7 +26,11 @@
                 <select id = "select-unit" >
                     <option disabled selected>Unit</option>
                     {% for unit in all_units %}
-                    <option>{{ unit.name }}</option>
+                        {% if current_unit_name == unit.name %}
+                        <option selected>{{ unit.name }}</option>
+                        {% else %}
+                        <option>{{ unit.name }}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
             </div>
@@ -39,7 +43,7 @@
                     <option>Free</option>
                 </select>
             </div>
-            <div id="seach-button"><i class="fas fa-search"></i></div>
+            <div id="search-button"><i class="fas fa-search"></i></div>
     	</div>
 
         <div id = "ip-content">

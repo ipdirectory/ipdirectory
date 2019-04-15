@@ -11,6 +11,7 @@ urlpatterns = [
     #path('ips/', views.ips, name='ips'),
     path('units/add', views.addUnit, name='addUnit'),
     url(r'^units/(?P<unit_pk>[0-9]+)/$', views.ips, name='ips'),
-    path('units/createUnit', views.createUnit, name='createUnit')
+    path('units/createUnit', views.createUnit, name='createUnit'),
+    path('test/', views.test, name='test'),
 
 ]

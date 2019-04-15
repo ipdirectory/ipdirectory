@@ -82,7 +82,7 @@ div{
 	vertical-align: top;
 }
 
-#seach-button{
+#search-button{
 	position: absolute;
 	right: 5%;
 	top: 10%;
@@ -94,7 +94,7 @@ div{
 	box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.75);
 }
 
-#seach-button:hover {
+#search-button:hover {
 	cursor: pointer;
 }
 

@@ -6,6 +6,8 @@ from django.http import HttpResponse
 
 from list.models import Unit, Ip
 
+from django.http import JsonResponse
+
 def ip(request) :
     
     if request.POST:
@@ -64,3 +66,7 @@ def free(request) :
              #   new_ip.save()
 
     return HttpResponse("Hello")
+
+def test(request) :
+    
+    return JsonResponse({'test': 'ok' })
