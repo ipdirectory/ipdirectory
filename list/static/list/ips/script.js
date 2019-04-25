@@ -10,6 +10,7 @@ $(document).ready(function(){
 	var ipContainer_device = ipContainer.find('.device');
 	var ipContainer_reserved = ipContainer.find('.reserved');
 	var emptyIpContainer = ipContainer.html('');
+	var unitFilterChanged = false;
 
 
 
@@ -79,29 +80,38 @@ $(document).ready(function(){
 		
 	})
 
-	$('#filter-reserved').change(function(){
+	$('#select-reserved').change(function(){
 		
 		$('.line').removeClass('display-none');
 
-		if($(this).children().val() == 'Free'){
+		if($(this).val() == 'Free'){
 			$('.reserved-True').addClass('display-none');
 		}
 
-		if($(this).children().val() == 'Reserved'){
+		if($(this).val() == 'Reserved'){
 			$('.reserved-False').addClass('display-none');
 		}
 		console.log('change');
 	})
 
+	$('#select-unit').change(function(){
 
+		unitFilterChanged = true;
+
+	})
 
 
 	$('#search-button').click(function(){
 
+		$('#select-reserved').val('sad');
 		var req = new FormData();
 		selectedUnit = $('#select-unit').val()
 		req.append('csrfmiddlewaretoken',$("input[name='csrfmiddlewaretoken']").val());
 		req.append('current_unit_name', selectedUnit);
+
+		if (!unitFilterChanged){
+			return;
+		}
 
 		$.ajax({
 
@@ -119,6 +129,8 @@ $(document).ready(function(){
 					
 				}
 			})
+
+		unitFilterChanged = false;
 	})
 
 	function createIpLine(id, ipAdress, branch, userName, device, reserved ){
@@ -146,15 +158,6 @@ $(document).ready(function(){
 	$('#test').dialog();
 
 	console.log($('#select-unit').val());
-
-	
-
-	/*$('#select-unit').blur(function(){
-		$(this).toggleClass('display-none');
-	})*/
-
-
-	//$('#select-unit').unwrap();
 
 
 
